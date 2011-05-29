@@ -1,0 +1,391 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "ath_res.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+SETTINGS_DIALOG DIALOGEX 34, 24, 255, 306
+STYLE DS_ABSALIGN | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_DLGMODALFRAME
+CAPTION "Atherosclerosis simulation settings"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,195,10,50,14
+    PUSHBUTTON      "Help",IDC_HELPCONTENTS,195,30,50,14
+    PUSHBUTTON      "Death Probability...",IDC_MACROSETKILLRATE,13,15,75,20
+    PUSHBUTTON      "Arrival Probability...",IDC_MACROSETARRIVALCHANCES,98,
+                    15,80,20
+    SCROLLBAR       IDC_NOOFMACROHITTINGWALLSCROLL,13,65,167,10
+    LTEXT           "Number of cells colliding with artery wall per cycle:",
+                    IDC_STATIC,13,51,167,14
+    EDITTEXT        IDC_NOOFMACROHITTINGWALLDISPLAY,63,75,72,15,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Load Settings...",IDC_LOADSETTINGS,195,70,57,15
+    PUSHBUTTON      "Save Settings...",IDC_SAVESETTINGS,195,90,57,15
+    GROUPBOX        "Macrophages",IDC_STATIC,5,5,180,90
+    PUSHBUTTON      "Arrival Probability...",IDC_SMCSETARRIVALCHANCES,100,
+                    115,80,20
+    SCROLLBAR       IDC_NOOFSMCHITTINGWALLSCROLL,14,164,167,10
+    LTEXT           "Number of cells available for migration into the intima per cycle:",
+                    IDC_STATIC,12,145,170,19
+    EDITTEXT        IDC_NOOFSMCHITTINGWALLDISPLAY,64,174,72,15,ES_CENTER
+    GROUPBOX        "Smooth Muscle Cells",IDC_STATIC,6,104,244,90
+    CONTROL         "Record Simulation Info",IDC_RECORDSIMULATIONINFO,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,290,152,13
+    LTEXT           "Macrophage inhibition %:",IDC_STATIC,195,145,45,20
+    EDITTEXT        IDC_SMCMACROKILLRATE,195,175,35,15,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    GROUPBOX        "Lipids",IDC_STATIC,5,200,240,85
+    SCROLLBAR       IDC_LIPIDARRIVALRATE,15,220,167,10
+    LTEXT           "Lipid arrival rate (amount of lipid per macrophage death)",
+                    IDC_STATIC,15,210,198,8
+    EDITTEXT        IDC_LIPIDARRIVALRATEDISPLAY,65,230,72,15,ES_CENTER
+    SCROLLBAR       IDC_LIPIDREMOVALRATE,15,255,167,10
+    LTEXT           "Lipid removal rate (amount of lipid per area of artery)",
+                    IDC_STATIC,15,245,198,8
+    EDITTEXT        IDC_LIPIDDEATHRATEDISPLAY,65,265,72,15,ES_CENTER
+    PUSHBUTTON      "Colours...",IDC_COLOURS,195,50,57,15
+END
+
+IDD_SIMULATIONINFO DIALOGEX 0, 0, 253, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Simulation Info"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Number of Cycles:",IDC_STATIC,7,7,58,8
+    EDITTEXT        IDC_NUMBEROFCYCLES,67,7,39,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER | NOT WS_BORDER,
+                    WS_EX_TRANSPARENT
+    LTEXT           "Number of Macrophages",IDC_STATIC,109,7,82,8
+    EDITTEXT        IDC_NUMMACROPHAGES,194,7,39,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER,WS_EX_TRANSPARENT
+    LTEXT           "Stop At Cycle:",IDC_STATIC,7,25,46,8
+    EDITTEXT        IDC_STOPATCYCLE,56,23,45,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_RECORDING,109,22,137,28,ES_MULTILINE | ES_READONLY | 
+                    NOT WS_BORDER
+END
+
+IDD_MAINDIALOG DIALOG DISCARDABLE  0, 0, 237, 158
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Atherosclerosis Simulation"
+MENU ATHERO_MENU
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_FUNCTIONADJ DIALOGEX 0, 0, 209, 163
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+CAPTION "Function Adjuster..."
+MENU IDR_FUNCADJMENU
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_ENTERNUMDLG DIALOG DISCARDABLE  0, 0, 180, 54
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Please enter value for x=0 (% Probability)"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,7,50,14
+    CONTROL         "Use this value for x =0",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,5,30,80,10
+    PUSHBUTTON      "Cancel",IDCANCEL,130,25,50,15
+    EDITTEXT        IDC_VALUEFORX0,5,10,100,12,ES_AUTOHSCROLL
+END
+
+IDD_STARTUPDLG DIALOGEX 0, 0, 364, 267
+STYLE DS_ABSALIGN | DS_CENTER | WS_POPUP | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         121,IDC_SPLASHBMP,"Static",SS_BITMAP | SS_CENTERIMAGE | 
+                    SS_REALSIZEIMAGE,71,55,227,146,WS_EX_TRANSPARENT
+END
+
+IDD_XSECTIONDISPLAYDLG DIALOGEX 0, 0, 323, 97
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 187, 93
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE | WS_EX_STATICEDGE
+CAPTION "About "
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,138,7,42,14
+    LTEXT           "Atherosclerosis Simulation  (Version 1.3) 4/04",
+                    IDC_STATIC,15,5,120,15
+    LTEXT           "By D. Poston and R. Poston",IDC_STATIC,15,30,100,10
+    LTEXT           "Contact: D. Poston (programming): dave@ideaworks3d.com",
+                    IDC_STATIC,15,45,110,15
+    LTEXT           "or R. Poston (vascular pathology): robin.poston@kcl.ac.uk",
+                    IDC_STATIC,15,65,160,20
+END
+
+IDD_COLOURDIALOG DIALOG DISCARDABLE  0, 0, 186, 166
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Colour Selection"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    PUSHBUTTON      "1 cell...",IDC_SMC1CELL,11,15,50,15
+    GROUPBOX        "Smooth Muscle Cells",IDC_STATIC,5,5,120,30
+    PUSHBUTTON      "Max cells...",IDC_SMCMAXCELLS,75,15,45,15
+    PUSHBUTTON      "1 cell...",IDC_MACRO1CELL,11,50,50,15
+    GROUPBOX        "Macrophages",IDC_STATIC,5,40,120,30
+    PUSHBUTTON      "Max cells...",IDC_MACROMAXCELLS,75,50,45,15
+    PUSHBUTTON      "Min...",IDC_LIPIDMIN,11,85,50,15
+    GROUPBOX        "Lipids",IDC_STATIC,5,75,120,30
+    PUSHBUTTON      "Max...",IDC_LIPIDMAX,75,85,45,15
+    PUSHBUTTON      "Restore Defaults",IDC_RESTOREDEFAULTCOLS,5,145,70,15
+    PUSHBUTTON      "Artery wall..",IDC_BACKGROUND,11,120,50,15
+    GROUPBOX        "Background",IDC_STATIC,5,110,120,30
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+ATHERO_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "Simulation"
+    BEGIN
+        MENUITEM "START!",                      CM_START
+        MENUITEM SEPARATOR
+        MENUITEM "Info...",                     CM_INFO
+        MENUITEM "Settings...",                 CM_SETTINGS
+        MENUITEM "Cross-Section",               CM_XSECTION
+    END
+    POPUP "View"
+    BEGIN
+        MENUITEM "Smooth Muscle Cells",         ATHERO_DRAWSMC, CHECKED
+        MENUITEM "Macrophages",                 ATHERO_DRAWMACRO, CHECKED
+        MENUITEM "Lipids",                      ATHERO_DRAWLIPIDS, CHECKED
+        MENUITEM "3D View",                     IDC_3DVIEW, CHECKED
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "Contents",                    CM_MENUHELP
+        MENUITEM "About...",                    CM_ABOUT
+    END
+END
+
+IDR_FUNCADJMENU MENU DISCARDABLE 
+BEGIN
+    MENUITEM "Set First x-value... ",       ID_SETFIRSTXVALUE
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""ath_res.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SIMULATIONINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 50
+    END
+
+    IDD_MAINDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_FUNCTIONADJ, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 156
+    END
+
+    IDD_ENTERNUMDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 47
+    END
+
+    IDD_STARTUPDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 357
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 260
+    END
+
+    IDD_XSECTIONDISPLAYDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 316
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_COLOURDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_STARTUPBMP          BITMAP  DISCARDABLE     "startup.bmp"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "Comments", "This program simulatates heart disease\0"
+            VALUE "CompanyName", "UMDS Experimental Pathology Department\0"
+            VALUE "FileDescription", "Atherosclerosis simulation\0"
+            VALUE "FileVersion", "1.1\0"
+            VALUE "InternalName", "Atherosclerosis simulation\0"
+            VALUE "LegalCopyright", "Copyright © 1998\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "atherosclerosis simulation.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Atherosclerosis simulation\0"
+            VALUE "ProductVersion", "1.1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP                 ICON    DISCARDABLE     "icon1.ico"
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
